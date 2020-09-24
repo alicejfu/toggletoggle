@@ -22,7 +22,15 @@ chrome.extension.sendMessage({}, function (response) {
         // document
         //   .querySelectorAll('.card')
         //   .forEach((element) => (element.style.backgroundColor = 'red'));
-        if (req === 'getCSS') {
+        if (req === 'getOptionsCount') {
+          console.log('received request from get options count');
+          res({ optionsCount: cssObj.length });
+        }
+        // else if (req === 'getDefaultCSS') {
+        //   // select our toggleToggle and set text content to empty string
+        //   document.querySelector('#toggle-toggle').textContent = '';
+        // }
+        else if (req === 'getCSS') {
           const allCSS = [...document.styleSheets]
             .map((styleSheet) => {
               try {
@@ -40,12 +48,11 @@ chrome.extension.sendMessage({}, function (response) {
             .join('\n');
 
           cssObj.push(allCSS);
-          console.log('cssObj length is ' + cssObj.length);
+          // console.log('cssObj length is ' + cssObj.length);
 
           res({ count: cssObj.length });
         } else {
           console.log('button clicked is: ' + req);
-          const style = '.card { background: red }';
           document.querySelector('#toggle-toggle').textContent =
             cssObj[req - 1];
         }

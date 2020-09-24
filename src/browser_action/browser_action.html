@@ -1,24 +1,34 @@
 <!DOCTYPE html>
 <style type="text/css">
   #mainPopup {
-    padding: 10px;
+    padding: 10px 10px 60px 10px;
     height: 200px;
-    width: 400px;
+    width: 350px;
     font-family: Helvetica, Ubuntu, Arial, sans-serif;
   }
   h1 {
     font-size: 2em;
   }
+
+  button {
+    background: #e9ccba;
+    color: #3b1e23;
+    border: none;
+    border-radius: 3px;
+    margin: 5px;
+    padding: 8px;
+  }
+
+  button:hover {
+    border: 1px solid #3b1e23;
+  }
 </style>
 
 <div id="mainPopup">
-  <h1>Hello extensionizr!</h1>
-  <p>
-    To shut this popup down, edit the manifest file and remove the "default
-    popup" key. To edit it, just edit ext/browser_action/browser_action.html.
-    The CSS is there, too.
-  </p>
+  <h1>toggle toggle</h1>
+  <p>Toggle between css styles :)</p>
   <button id="getCSS">Get CSS</button>
+  <!-- <button id="default-css">Default Style</button> -->
 
   <div class="css-options"></div>
 </div>
